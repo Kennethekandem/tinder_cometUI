@@ -131,13 +131,6 @@
             (click)="toggleEmoji()"
           >
           </span>
-          <emoji-mart
-            (emojiSelect)="addEmoji($event)"
-            [title]="PICK_YOUR_EMOJI"
-            emoji="point_up"
-            *ngIf="emojiToggled"
-            [style]="emojiStyle(parentMessageId)"
-          ></emoji-mart>
           <span
             id="send"
             title="send message"

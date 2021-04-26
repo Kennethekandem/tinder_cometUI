@@ -30,7 +30,7 @@ export class CometChatMessageThreadComponent implements OnInit, OnChanges {
 
   messageList = [];
   replyCount: number = 0;
-  reachedTopOfConversation = false;
+  reachedTopOfConversation: boolean = false;
   scrollVariable = 0;
   messageToBeEdited = null;
   replyPreview = null;
