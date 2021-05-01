@@ -28,4 +28,12 @@ export class AuthService {
   register(formData : any) {
     return this.http.post(this.authUrl + '/register', formData);
   }
+
+  registerCometChat(data : any) {
+    return this.http.post('https://api-us.cometchat.io/v2.0/users', data);
+  }
+
+  loginCometChat(uid) {
+    return this.http.get('https://api-us.cometchat.io/v2.0/users/' + uid);
+  }
 }

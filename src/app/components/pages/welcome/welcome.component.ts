@@ -62,8 +62,9 @@ export class WelcomeComponent implements OnInit {
             .subscribe((response: any) => {
                 this.user = response.data._doc;
                 this.getUser();
+
                 localStorage.setItem('accessToken', response.data.accessToken);
-                this.router.navigate(['/home']);
+                this.registerComet();
             })
     }
 
@@ -75,7 +76,10 @@ export class WelcomeComponent implements OnInit {
                     this.user = data.data._doc;
                     this.getUser();
                     localStorage.setItem('accessToken', data.data.accessToken);
-                    this.router.navigate(['/home']);
+
+                    const uid = data.data._doc.name.replace(/\s/g, '');
+                    this.cometLogin(uid)
+
                 },
                 error => {
 
@@ -95,18 +99,29 @@ export class WelcomeComponent implements OnInit {
         localStorage.setItem('user', JSON.stringify(this.user));
     }
 
-  /*login() {
-    const authKey = "cdf0cba5238483562e204a0fe165724b974b2b13";
-    const uid = "superhero1";
+    registerComet() {
+        let user = JSON.parse(localStorage.getItem('user'));
+        let name = user.name;
+        let uid = name.replace(/\s/g, '')
+        let data = {uid, name};
 
-    CometChat.login(uid, authKey).then(
-        (user) => {
-          console.log("Login Successful:", { user });
-          this.router.navigate(["/home"]);
-        },
-        (error) => {
-          console.log("Login failed with exception:", { error });
-        }
-    );
-  }*/
+        this.service.registerCometChat(data)
+            .subscribe(() => {
+                this.cometLogin(uid);
+            })
+    }
+
+    cometLogin(uid) {
+        const authKey = "cdf0cba5238483562e204a0fe165724b974b2b13";
+
+        CometChat.login(uid, authKey).then(
+            (user) => {
+                console.log("Login Successful:", { user });
+                this.router.navigate(["/home"]);
+            },
+            (error) => {
+                console.log("Login failed with exception:", { error });
+            }
+        );
+    }
 }
