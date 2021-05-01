@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+.btn {
+    padding: .5rem 2rem;
+}
+.btn-light {
+    color: #fd5068;
+    border: 0;
+}
+.btn-light:hover {
+    background: linear-gradient(262deg,#ff7854,#fd267d);
+    color: #fff;
+}
+.btn-primary {
+    background: linear-gradient(262deg,#ff7854,#fd267d);
+    border: 0;
+    border-radius: 40px;
+    padding: 1rem 4rem;
+}
+.btn-primary:hover {
+    background: linear-gradient(262deg,#fd267d,#ff7854);
+}
+.modal-header {
+    display: block;
+    text-align: center;
+    border-bottom: 0;
+}
+.modal-content {
+    border-radius: 8px;
+    padding-bottom: 35px;
+    padding-top: 20px;
+    position: relative;
+    /*top: 7rem;*/
+}
+.btn-close {
+    float: right !important;
+}
+.form-control, .form-select {
+    border: 0;
+}
+.form-floating>.form-control:-webkit-autofill {
+    padding-top: 1rem;
+    padding-bottom: .1rem;
+}
+h5 {
+    font-size: 1.85rem;
+}
+.form-floating>.form-control, .form-floating>.form-select {
+    background: #f5f7fa;
+}
+.form-control:focus, .form-select:focus {
+    box-shadow: none;
+}
+.rounded-img {
+    border-radius: 100%;
+    object-fit: cover;
+}
+p a {
+    color: #fff;
+    text-decoration: none;
+}
+.profile-col p {
+    margin-left: 15px;
+    margin-top: 10px;
+}

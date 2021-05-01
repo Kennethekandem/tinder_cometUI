@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {CometChat} from "@cometchat-pro/chat";
+import {UserService} from "../../../services/user/user.service";
+import {AuthService} from "../../../services/auth/auth.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-welcome',
@@ -9,12 +12,90 @@ import {CometChat} from "@cometchat-pro/chat";
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+    user = {};
+    loginData: any = {};
+    likeData = {};
 
-  ngOnInit(): void {
-  }
+    form: any = FormGroup;
 
-  login() {
+    constructor(
+        private userService: UserService,
+        private service: AuthService,
+        private router: Router,
+        private formBuilder: FormBuilder
+    ) { }
+
+    ngOnInit(): void {
+
+        this.form = this.formBuilder.group({
+            name: [''],
+            email: [''],
+            phone: [''],
+            password: [''],
+            age: [''],
+            gender: [''],
+            location: [''],
+            profile_photo: [''],
+        })
+    }
+
+    profilePhoto(event : any) {
+        const profile = event.target.files[0];
+        this.form.get('profile_photo').setValue(profile);
+    }
+
+    add() {
+
+        const formData = new FormData();
+
+        formData.append('name', this.form.get('name').value);
+        formData.append('email', this.form.get('email').value);
+        formData.append('phone', this.form.get('phone').value);
+        formData.append('password', this.form.get('password').value);
+        formData.append('age', this.form.get('age').value);
+        formData.append('gender', this.form.get('gender').value);
+        formData.append('location', this.form.get('location').value);
+        formData.append('profile_photo', this.form.get('profile_photo').value);
+
+        this.service
+            .register(formData)
+            .subscribe((response: any) => {
+                this.user = response.data._doc;
+                this.getUser();
+                localStorage.setItem('accessToken', response.data.accessToken);
+                this.router.navigate(['/home']);
+            })
+    }
+
+    login() {
+        this.service
+            .login(this.loginData)
+            .subscribe((data: any) => {
+
+                    this.user = data.data._doc;
+                    this.getUser();
+                    localStorage.setItem('accessToken', data.data.accessToken);
+                    this.router.navigate(['/home']);
+                },
+                error => {
+
+                })
+    }
+
+    like() {
+        this.userService
+            .like(this.loginData)
+            .subscribe((response: any) => {
+                this.user = response.data._doc;
+                this.getUser();
+            });
+    }
+
+    getUser() {
+        localStorage.setItem('user', JSON.stringify(this.user));
+    }
+
+  /*login() {
     const authKey = "cdf0cba5238483562e204a0fe165724b974b2b13";
     const uid = "superhero1";
 
@@ -27,5 +108,5 @@ export class WelcomeComponent implements OnInit {
           console.log("Login failed with exception:", { error });
         }
     );
-  }
+  }*/
 }
