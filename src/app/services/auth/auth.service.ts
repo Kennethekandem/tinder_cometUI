@@ -30,10 +30,10 @@ export class AuthService {
   }
 
   registerCometChat(data : any) {
-    return this.http.post('https://api-us.cometchat.io/v2.0/users', data);
+    return this.http.post('https://api-us.cometchat.io/v2.0/users', data, {headers: {appId: '3252038b2900b26', apiKey: 'fa74f7453b417fac8888a553be226ba7d24560a7' }});
   }
 
-  loginCometChat(uid) {
+  loginCometChat(uid : any) {
     return this.http.get('https://api-us.cometchat.io/v2.0/users/' + uid);
   }
 }
