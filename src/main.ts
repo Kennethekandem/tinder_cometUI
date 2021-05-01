@@ -10,8 +10,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+/*platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));*/
 
 
 const appID = "3252038b2900b26";
