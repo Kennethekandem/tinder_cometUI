@@ -60,7 +60,6 @@ export class WelcomeComponent implements OnInit {
         this.service
             .register(formData)
             .subscribe((response: any) => {
-                console.log(response);
                 this.user = response.data;
                 this.getUser();
 
