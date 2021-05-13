@@ -112,9 +112,6 @@ p a {
   font-size: 2rem;
   font-weight: 600;
 }
-.modal-backdrop .fade .show {
-  display: none;
-}
 .main {
   height: 100vh;
   width: 100vw;
@@ -167,4 +164,14 @@ p a {
   position: relative;
   top: -50px;
   left: -20px;
+}
+
+.modal-backdrop .fade .show {
+  display: none !important;
+}
+.modal-backdrop.show {
+  opacity: 0 !important;
+}
+.modal-backdrop {
+  position: inherit !important;
 }

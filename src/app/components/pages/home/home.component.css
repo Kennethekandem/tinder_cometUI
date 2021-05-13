@@ -1,0 +1,9 @@
+.modal-backdrop .fade .show {
+  display: none !important;
+}
+.modal-backdrop.show {
+  opacity: 0 !important;
+}
+.modal-backdrop {
+  position: inherit !important;
+}
