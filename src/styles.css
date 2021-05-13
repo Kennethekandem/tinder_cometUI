@@ -181,3 +181,6 @@ p a {
   ~ .app-side {
   display: none !important;
 }
+.userScreenStyle {
+  height: 80vh !important;
+}
