@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CometChat } from '@cometchat-pro/chat';
 import {UserService} from "../../../services/user/user.service";
 
 @Component({
@@ -52,6 +53,23 @@ export class HomeComponent implements OnInit {
         .subscribe((response: any) => {
           this.allMatches = response.data;
         })
+  }
+
+  cometUsers() {
+    
+    var limit = 30;
+    var usersRequest = new CometChat.UsersRequestBuilder().setLimit(limit).build();
+
+    usersRequest.fetchNext().then(
+      userList => {
+        /* userList will be the list of User class. */
+        console.log("User list received:", userList);
+        /* retrived list can be used to display contact list. */
+      },
+      error => {
+        console.log("User list fetching failed with error:", error);
+      }
+    );
   }
 
 }
