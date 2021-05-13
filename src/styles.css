@@ -175,3 +175,9 @@ p a {
 .modal-backdrop {
   position: inherit !important;
 }
+
+.nav-pills[_ngcontent-mwa-c87]
+  .nav-link.active[_ngcontent-mwa-c87]
+  ~ .app-side {
+  display: none !important;
+}

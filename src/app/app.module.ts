@@ -15,6 +15,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TokenInterceptor} from "./interceptors/token/token.interceptor";
 import {CometChatUserListWithMessages} from "../cometchat-pro-angular-ui-kit/CometChatWorkspace/projects/angular-chat-ui-kit/src/components/Users/CometChat-user-list-with-messages/cometchat-user-list-with-messages.module";
+import { CometChatUserList } from "../cometchat-pro-angular-ui-kit/CometChatWorkspace/projects/angular-chat-ui-kit/src/components/Users/CometChat-user-list/cometchat-user-list.module";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {CometChatUserListWithMessages} from "../cometchat-pro-angular-ui-kit/Com
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CometChatUserListWithMessages
+    CometChatUserListWithMessages,
+    CometChatUserList
   ],
   providers: [
     {
