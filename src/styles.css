@@ -112,6 +112,9 @@ p a {
   font-size: 2rem;
   font-weight: 600;
 }
+.modal-backdrop .fade .show {
+  display: none;
+}
 .main {
   height: 100vh;
   width: 100vw;
@@ -165,7 +168,6 @@ p a {
   top: -50px;
   left: -20px;
 }
-
 .modal-backdrop .fade .show {
   display: none !important;
 }
@@ -185,18 +187,19 @@ p a {
   height: 80vh !important;
 }
 .side-header {
-    height: 70px;
-    background: linear-gradient(262deg,#ff7854,#fd267d);
-    box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
+  height: 70px;
+  background: linear-gradient(262deg, #ff7854, #fd267d);
+  box-shadow: 0 1px 8px 0 rgb(0 17 25 / 27%);
 }
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    color: #000000;
-    background-color: transparent;
-    border-bottom: 3px solid #fd5068;
-    border-radius: 0;
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #000000;
+  background-color: transparent;
+  border-bottom: 3px solid #fd5068;
+  border-radius: 0;
 }
 .logout {
-    background: transparent;
-    border: 0;
-    color: #fff;
+  background: transparent;
+  border: 0;
+  color: #fff;
 }
