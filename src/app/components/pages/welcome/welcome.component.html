@@ -159,6 +159,13 @@
           [formGroup]="form"
           (ngSubmit)="add()"
         >
+          <div
+            class="alert alert-{{ message.color }}"
+            *ngIf="message"
+            role="alert"
+          >
+            {{ message.message }}
+          </div>
           <div class="form-floating mb-3">
             <input
               type="text"

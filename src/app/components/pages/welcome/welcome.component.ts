@@ -71,6 +71,8 @@ export class WelcomeComponent implements OnInit {
 
                 localStorage.setItem('accessToken', response.data.accessToken);
                 this.registerComet();
+            }, error => {
+                this.message = {message: error.error.message, color: 'danger'};
             })
     }
 
