@@ -20,6 +20,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthService } from './services/auth/auth.service';
 import { LoadingInterceptor } from './interceptors/loading/loading.interceptor';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoadingInterceptor } from './interceptors/loading/loading.interceptor';
     DefaultComponent,
     BlankComponent,
     SideComponent,
-    LoaderComponent
+    LoaderComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,12 @@ export class WelcomeComponent implements OnInit {
 
     form: any = FormGroup;
 
+    message: any = {
+        message: '',
+        color: ''
+    }
+
+
     constructor(
         private userService: UserService,
         private service: AuthService,
@@ -82,7 +88,7 @@ export class WelcomeComponent implements OnInit {
 
                 },
                 error => {
-
+                    this.message = {message: error.error.message, color: 'danger'};
                 })
     }
 
