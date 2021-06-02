@@ -10,9 +10,13 @@
           <!-- <button type="button" class="like-nope-button" (click)="single()">
             <i class="fas fa-times"></i>
           </button> -->
-          <button type="submit" class="like-nope-button">
-            <app-loader></app-loader>
-            <i class="fas fa-heart" (click)="like(getUser._id)"></i>
+          <button
+            type="submit"
+            class="like-nope-button"
+            (click)="like(getUser._id)"
+          >
+            <app-loading></app-loading>
+            <i class="fas fa-heart"></i>
           </button>
         </span>
       </div>

@@ -16,11 +16,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TokenInterceptor} from "./interceptors/token/token.interceptor";
 import {CometChatUserListWithMessages} from "../cometchat-pro-angular-ui-kit/CometChatWorkspace/projects/angular-chat-ui-kit/src/components/Users/CometChat-user-list-with-messages/cometchat-user-list-with-messages.module";
 import { CometChatUserList } from "../cometchat-pro-angular-ui-kit/CometChatWorkspace/projects/angular-chat-ui-kit/src/components/Users/CometChat-user-list/cometchat-user-list.module";
-import { LoaderComponent } from './components/loader/loader.component';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthService } from './services/auth/auth.service';
 import { LoadingInterceptor } from './interceptors/loading/loading.interceptor';
 import { MessageComponent } from './components/message/message.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +30,8 @@ import { MessageComponent } from './components/message/message.component';
     DefaultComponent,
     BlankComponent,
     SideComponent,
-    LoaderComponent,
-    MessageComponent
+    MessageComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
